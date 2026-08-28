@@ -1,0 +1,7 @@
+include:
+  - component: gitlab.dev.improjects.ru/infrastructure/repo-mirror/mirror@1.0.2
+    inputs:
+      job_name: mirror-github
+      stage: build
+      branch: main
+      peer_url: "ssh://git@github.com:22/2serenity/mirror-probe.git"
