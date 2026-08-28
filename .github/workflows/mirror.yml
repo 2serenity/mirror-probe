@@ -1,0 +1,16 @@
+name: Mirror to GitLab
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  mirror:
+    uses: 2serenity/repo-mirror/.github/workflows/mirror.yml@v1
+    with:
+      branch: main
+      peer-url: ssh://git@gitlab.dev.improjects.ru:2222/mirrortest/mirror-probe.git
+    secrets:
+      ssh-key: ${{ secrets.MIRROR_SSH_KEY }}
+      known-hosts: ${{ secrets.MIRROR_KNOWN_HOSTS }}
